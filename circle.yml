@@ -15,6 +15,6 @@ dependencies:
 
 test:
   override:
-    - CORES=`cat /proc/cpuinfo | grep processor | wc -l`; find src/application -name '*.php' -type f -print0 | xargs -0 -n1 -P${CORES} php -l > /dev/null
+    - CORES=`cat /proc/cpuinfo | grep processor | wc -l`; find src -name '*.php' -type f -print0 | xargs -0 -n1 -P${CORES} php -l > /dev/null
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
-    - composer test -- --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
+    - composer test -- --coverage-html $CIRCLE_TEST_REPORTS/phpunit
