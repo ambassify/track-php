@@ -13,6 +13,9 @@ dependencies:
   pre:
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
 
+  override:
+    - composer install
+
 test:
   override:
     - CORES=`cat /proc/cpuinfo | grep processor | wc -l`; find src -name '*.php' -type f -print0 | xargs -0 -n1 -P${CORES} php -l > /dev/null
