@@ -33,6 +33,12 @@ class Client {
         $this->baseurl = Arr::get($options, 'baseurl', $this->endpoint);
         $this->apikey = Arr::get($options, 'apikey', null);
 
+        if ($this->endpoint)
+            $this->endpoint = rtrim($this->endpoint, '/');
+
+        if ($this->baseurl)
+            $this->baseurl = rtrim($this->baseurl, '/');
+
         if ($this->strict && !$this->baseurl)
             throw new ConfigException('baseurl or endpoint required in strict mode');
     }
