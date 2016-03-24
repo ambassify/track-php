@@ -15,7 +15,6 @@
         }
     },
     "require": {
-        "illuminate/support": "^5.2"
     },
     "scripts": {
         "test": "phpunit"

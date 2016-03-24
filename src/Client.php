@@ -2,7 +2,7 @@
 
 namespace Ambassify\Track;
 
-use Illuminate\Support\Arr;
+use Ambassify\Track\Arr;
 use Ambassify\Track\Exception\ConfigException;
 use Ambassify\Track\Exception\InvalidArgumentException;
 use Ambassify\Track\Exception\RequestException;
