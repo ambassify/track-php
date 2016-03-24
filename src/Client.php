@@ -98,10 +98,12 @@ class Client {
                 $this->parse_shortlink($short);
 
             if ($parsed) {
-                $protocol = $parsed['protocol'];
-                $domain = $parsed['domain'];
+                $base = $this->baseurl ?
+                    $this->baseurl :
+                    $parsed['protocol'] . '://' . $parsed['domain'];
+
                 $shortcode = $parsed['shortcode'];
-                $new_url = "$protocol://$domain/r/$shortcode";
+                $new_url = "$base/r/$shortcode";
                 $base_params = $parsed['override'];
             } else {
                 throw new InvalidArgumentException("Not a valid shortlink or shortcode: $short");
